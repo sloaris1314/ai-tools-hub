@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Suno AI 完全指南：输入描述即生成完整歌曲 | AI工具导航</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif; background: #0a0a0f; color: #e0e0e0; line-height: 1.9; }
+a { color: #00d4aa; }
+.container { max-width: 780px; margin: 0 auto; padding: 0 24px; }
+.header { background: #111118; border-bottom: 1px solid #1a1a2e; position: sticky; top: 0; z-index: 100; }
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.logo { font-size: 18px; font-weight: 800; background: linear-gradient(135deg, #00d4aa, #7b61ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.nav-back { color: #888; font-size: 14px; }
+.article-main { padding: 60px 0; }
+.article-category { display: inline-block; background: #00d4aa15; color: #00d4aa; padding: 4px 12px; border-radius: 4px; font-size: 12px; font-weight: 600; margin-bottom: 16px; }
+.article-title { font-size: clamp(24px, 4vw, 36px); font-weight: 800; color: #fff; line-height: 1.3; margin-bottom: 16px; }
+.article-meta { display: flex; gap: 16px; align-items: center; margin-bottom: 40px; padding-bottom: 24px; border-bottom: 1px solid #1a1a2e; flex-wrap: wrap; }
+.article-meta span { font-size: 13px; color: #666; }
+.article-content h2 { font-size: 22px; font-weight: 700; color: #fff; margin: 40px 0 16px; padding-left: 12px; border-left: 3px solid #00d4aa; }
+.article-content h3 { font-size: 18px; font-weight: 600; color: #ddd; margin: 28px 0 12px; }
+.article-content p { margin-bottom: 16px; color: #aaa; font-size: 15px; }
+.article-content ul, .article-content ol { margin: 12px 0 20px 20px; color: #aaa; font-size: 15px; }
+.article-content li { margin-bottom: 8px; }
+.article-content strong { color: #ddd; }
+.prompt-demo { background: #111118; border: 1px solid #1a1a2e; border-radius: 12px; padding: 20px; margin: 16px 0; }
+.prompt-demo label { color: #00d4aa; font-size: 13px; font-weight: 600; display: block; margin-bottom: 8px; }
+.prompt-demo textarea { width: 100%; background: #0a0a0f; border: 1px solid #1a1a2e; border-radius: 8px; padding: 12px; color: #e0e0e0; font-size: 14px; resize: vertical; min-height: 80px; }
+.genre-table { width: 100%; border-collapse: collapse; margin: 20px 0; color: #aaa; font-size: 14px; }
+.genre-table th { background: #1a1a2e; color: #00d4aa; padding: 10px 14px; text-align: left; }
+.genre-table td { padding: 10px 14px; border-bottom: 1px solid #1a1a2e; }
+.affiliate-cta { background: linear-gradient(135deg, #00d4aa11, #7b61ff11); border: 1px solid #00d4aa33; border-radius: 16px; padding: 28px; margin: 36px 0; text-align: center; }
+.affiliate-cta-title { font-size: 18px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+.affiliate-cta-btn { display: inline-block; background: linear-gradient(135deg, #00d4aa, #7b61ff); color: #fff; padding: 12px 32px; border-radius: 10px; font-size: 15px; font-weight: 700; margin-top: 16px; }
+.footer { background: #111118; border-top: 1px solid #1a1a2e; padding: 32px 0; text-align: center; }
+.footer a { color: #00d4aa; }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="logo">AI工具导航</div>
+    <a href="../index.html" class="nav-back">← 返回首页</a>
+  </div>
+</header>
+
+<main class="article-main">
+  <div class="container">
+    <div class="article-category">音频处理</div>
+    <h1 class="article-title">Suno AI 完全指南：输入描述即生成完整歌曲</h1>
+    <div class="article-meta">
+      <span class="author">AI工具导航团队</span>
+      <span>|</span>
+      <span>更新于 2026-06-27</span>
+      <span>|</span>
+      <span>阅读时间：约 9 分钟</span>
+    </div>
+
+    <div class="article-content">
+
+<p>Suno AI 是目前最强的 AI 音乐生成工具——你只需要用自然语言描述你想要的音乐风格、主题、情绪，它就能生成一段包含旋律、和声、编曲、甚至人声演唱的完整歌曲。本文是 Suno 的完整使用指南。</p>
+
+<h2>Suno 能做什么？</h2>
+
+<ul>
+  <li><strong>生成完整歌曲</strong>：包含前奏、主歌、副歌、间奏、尾奏，结构完整</li>
+  <li><strong>多种音乐风格</strong>：流行、摇滚、爵士、电子、古典、说唱、民谣……几乎覆盖所有 genre</li>
+  <li><strong>支持人声演唱</strong>：可以生成带歌词的歌曲（支持中文！），人声自然度相当高</li>
+  <li><strong>纯音乐生成</strong>：也可以只生成伴奏/纯音乐</li>
+  <li><strong>自定义长度</strong>：默认约 2-4 分钟，可扩展</li>
+</ul>
+
+<h2>快速上手：3 分钟生成你的第一首 AI 歌曲</h2>
+
+<h3>第一步：访问 Suno</h3>
+<p>官网：<a href="https://suno.com">https://suno.com</a>（新用户免费注册，每天有免费生成额度）</p>
+
+<h3>第二步：编写描述词（核心技巧！）</h3>
+
+<p>Suno 接受两种输入方式：</p>
+<ol>
+  <li><strong>简单模式</strong>：只写一段描述，让 AI 自由发挥</li>
+  <li><strong>专业模式</strong>：分别指定 Lyrics（歌词）和 Style（风格），效果更可控</li>
+</ol>
+
+<p><strong>推荐用专业模式</strong>，以下是实测有效的描述模板：</p>
+
+<div class="prompt-demo">
+  <label>【中文流行 · 情感向】</label>
+  <textarea readonly>Style: 中文流行, 抒情, 钢琴伴奏, 慢板, 女声
+Lyrics:
+[前奏]
+[主歌]
+窗外的雨还在下
+回忆像潮水涌来
+你的笑容在眼前
+却触不可及
+
+[副歌]
+如果时间可以倒流
+我想回到那个夏天
+那时我们还年少
+什么都不怕失去</textarea>
+</div>
+
+<div class="prompt-demo">
+  <label>【英文电子 · 舞曲向】</label>
+  <textarea readonly>Style: Electronic Dance Music, Progressive House, Uplifting, 128 BPM, Male Vocals
+Lyrics:
+[Intro]
+[Verse 1]
+Walking through the city lights
+Everything is possible tonight
+[Chorus]
+We are rising, we are free
+This is where we're meant to be
+[Drop]
+[Outro]</textarea>
+</div>
+
+<h3>第三步：调整参数并生成</h3>
+<table class="genre-table">
+  <tr><th>参数</th><th>推荐设置</th><th>说明</th></tr>
+  <tr><td> instrumental</td><td>Off（如需人声）</td><td>是否生成纯音乐</td></tr>
+  <tr><td>Custom Mode</td><td>On</td><td>开启后可自定义歌词和风格</td></tr>
+  <tr><td>Extend</td><td>用于续写</td><td>歌曲结束后可扩展长度</td></tr>
+</table>
+
+<h2>不同音乐风格的描述词参考</h2>
+
+<table class="genre-table">
+  <tr><th>风格</th><th>描述词关键词</th><th>适用场景</th></tr>
+  <tr><td>抒情流行</td><td>Ballad, Piano, Emotional, Slow Tempo</td><td>情感表达、MV背景</td></tr>
+  <tr><td>电子舞曲</td><td>EDM, Progressive House, 128 BPM, Energetic</td><td>健身、派对</td></tr>
+  <tr><td>爵士</td><td>Jazz, Saxophone, Smooth, Acoustic</td><td>咖啡厅、放松</td></tr>
+  <tr><td>摇滚</td><td>Rock, Electric Guitar, Drums, Powerful</td><td>运动、激励视频</td></tr>
+  <tr><td>古典</td><td>Classical, Orchestra, Cinematic, Epic</td><td>视频配乐、游戏</td></tr>
+  <tr><td>Lo-fi</td><td>Lo-fi Hip Hop, Chill, Vinyl Crackle</td><td>学习背景音</td></tr>
+</table>
+
+<h2>Suno 的局限性（实话实说）</h2>
+
+<ul>
+  <li><strong>人声偶尔咬字不清</strong>：特别是中文，有些字会"糊"</li>
+  <li><strong>歌曲结构有时混乱</strong>：可能出现副歌重复次数不合理等问题</li>
+  <li><strong>版权问题</strong>：目前 AI 生成音乐的版权归属存在法律灰色地带，商用需谨慎</li>
+  <li><strong>免费额度有限</strong>：每天约 5 次免费生成，之后需付费</li>
+</ul>
+
+<h2>价格：免费 vs 付费</h2>
+
+<table class="genre-table">
+  <tr><th>计划</th><th>价格</th><th>生成次数/月</th><th>商用授权</th></tr>
+  <tr><td>Free</td><td>$0</td><td>约 50 次</td><td>❌</td></tr>
+  <tr><td>Pro</td><td>$10/月</td><td>500 次</td><td>✅</td></tr>
+  <tr><td>Premier</td><td>$30/月</td><td>2000 次</td><td>✅</td></tr>
+</table>
+
+<p><strong>建议</strong>：先试用免费版，确认输出质量符合预期后再升级 Pro。对于个人创作用途，Pro 计划（$10/月）性价比很高。</p>
+
+<h2>与竞品对比</h2>
+
+<ul>
+  <li><strong>vs Udio</strong>：Udio 的音乐质量略高，但 Suno 的中文支持更好，上手更简单</li>
+  <li><strong>vs AIVA</strong>：AIVA 专注纯音乐，适合配乐；Suno 有人声，更适合歌曲创作</li>
+  <li><strong>vs Mubert</strong>：Mubert 生成无限长度的背景音乐，但不可控；Suno 可控性强</li>
+</ul>
+
+<h2>总结：是否推荐？</h2>
+
+<p><strong>推荐以下人群使用 Suno</strong>：</p>
+<ul>
+  <li>独立音乐人（快速 demo 制作）</li>
+  <li>视频创作者（需要原创 BGM）</li>
+  <li>播客主播（制作片头片尾曲）</li>
+  <li>音乐爱好者（纯好玩，创作自己的歌）</li>
+</ul>
+
+<p><strong>综合评分：8.5/10</strong> —— Suno 是目前最易用、效果最好的 AI 音乐生成工具。如果你需要为视频配乐或者单纯想创作音乐，它绝对值得一试。</p>
+
+    </div><!-- end article-content -->
+
+    <div class="affiliate-cta">
+      <div class="affiliate-cta-title">🎵 立即试用 Suno AI</div>
+      <div class="affiliate-cta-desc">通过我们的独家链接注册，获取新用户免费额度</div>
+      <a href="https://suno.com/?ref=PLACEHOLDER_AFF_SUNO" class="affiliate-cta-btn" target="_blank">免费开始创作 →</a>
+    </div>
+
+    <p style="color:#444; font-size:13px; margin-top:40px; padding-top:20px; border-top:1px solid #1a1a2e;">
+      💡 本文包含联盟链接。使用我们的链接购买无需额外费用，我们会获得少量佣金以支持独立评测。感谢您的支持！
+    </p>
+  </div>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <p>© 2026 <a href="../index.html">AI工具导航</a> · 独立评测，客观推荐</p>
+  </div>
+</footer>
+
+</body>
+</html>

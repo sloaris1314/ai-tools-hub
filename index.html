@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI工具导航 · 2026年最佳AI工具评测与推荐</title>
+<meta name="description" content="深度评测2026年最热门的AI工具，包括ChatGPT、Claude、Midjourney等，帮你找到最适合的AI助手。">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif; background: #0a0a0f; color: #e0e0e0; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+a { color: inherit; text-decoration: none; }
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+.header { background: #111118; border-bottom: 1px solid #1a1a2e; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); }
+.header-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+.logo { font-size: 20px; font-weight: 800; background: linear-gradient(135deg, #00d4aa, #7b61ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.nav { display: flex; gap: 28px; align-items: center; }
+.nav a { color: #888; font-size: 14px; font-weight: 500; transition: color 0.2s; }
+.nav a:hover { color: #00d4aa; }
+.nav-cta { background: linear-gradient(135deg, #00d4aa, #7b61ff); color: #fff !important; padding: 8px 18px; border-radius: 8px; font-weight: 600; }
+
+.hero { padding: 80px 0 60px; text-align: center; position: relative; overflow: hidden; }
+.hero::before { content: ''; position: absolute; top: -50%; left: 50%; transform: translateX(-50%); width: 600px; height: 600px; background: radial-gradient(circle, #00d4aa08, transparent 70%); pointer-events: none; }
+.hero-badge { display: inline-block; background: #00d4aa15; color: #00d4aa; border: 1px solid #00d4aa33; padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 600; margin-bottom: 20px; }
+.hero h1 { font-size: clamp(28px, 5vw, 48px); font-weight: 800; color: #fff; line-height: 1.2; margin-bottom: 16px; }
+.hero h1 span { background: linear-gradient(135deg, #00d4aa, #7b61ff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero p { color: #888; font-size: 16px; max-width: 600px; margin: 0 auto 32px; }
+.hero-search { max-width: 500px; margin: 0 auto; }
+.hero-search input { width: 100%; padding: 14px 20px; background: #111118; border: 1px solid #1a1a2e; border-radius: 12px; color: #fff; font-size: 15px; outline: none; transition: border-color 0.2s; }
+.hero-search input:focus { border-color: #00d4aa; }
+.hero-search input::placeholder { color: #444; }
+
+.categories { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 40px; justify-content: center; }
+.pill { padding: 8px 18px; background: #111118; border: 1px solid #1a1a2e; border-radius: 20px; font-size: 13px; color: #888; cursor: pointer; transition: all 0.2s; }
+.pill:hover, .pill.active { background: #00d4aa15; border-color: #00d4aa55; color: #00d4aa; }
+
+.articles-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 24px; margin-bottom: 60px; }
+.article-card { background: #111118; border: 1px solid #1a1a2e; border-radius: 16px; overflow: hidden; transition: all 0.3s; cursor: pointer; }
+.article-card:hover { border-color: #00d4aa33; transform: translateY(-4px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+.article-thumb { width: 100%; height: 180px; background: linear-gradient(135deg, #0d0d15, #1a1a2e); display: flex; align-items: center; justify-content: center; font-size: 48px; position: relative; overflow: hidden; }
+.article-thumb::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 60px; background: linear-gradient(transparent, #111118); }
+.article-body { padding: 20px; }
+.article-meta { display: flex; gap: 12px; margin-bottom: 10px; }
+.article-meta span { font-size: 11px; color: #00d4aa; background: #00d4aa15; padding: 2px 8px; border-radius: 4px; font-weight: 600; }
+.article-title { font-size: 16px; font-weight: 600; color: #fff; line-height: 1.5; margin-bottom: 10px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.article-excerpt { font-size: 13px; color: #666; line-height: 1.6; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; margin-bottom: 16px; }
+.article-footer { display: flex; align-items: center; justify-content: space-between; }
+.article-date { font-size: 12px; color: #444; }
+.article-read { font-size: 12px; color: #00d4aa; font-weight: 600; }
+
+.tools-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; }
+.tool-card { background: #111118; border: 1px solid #1a1a2e; border-radius: 16px; padding: 24px; text-align: center; transition: all 0.3s; }
+.tool-card:hover { border-color: #00d4aa33; transform: translateY(-4px); }
+.tool-icon { width: 56px; height: 56px; border-radius: 14px; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; font-size: 28px; }
+.tool-icon.green { background: #00d4aa22; }
+.tool-icon.purple { background: #7b61ff22; }
+.tool-icon.blue { background: #3b82f622; }
+.tool-icon.orange { background: #f9731622; }
+.tool-name { font-size: 16px; font-weight: 700; color: #fff; margin-bottom: 6px; }
+.tool-desc { font-size: 13px; color: #666; line-height: 1.6; margin-bottom: 16px; }
+.tool-rating { color: #ffa502; font-size: 13px; margin-bottom: 16px; }
+.tool-cta { display: inline-block; background: #00d4aa15; color: #00d4aa; border: 1px solid #00d4aa33; padding: 8px 20px; border-radius: 8px; font-size: 13px; font-weight: 600; transition: all 0.2s; }
+.tool-cta:hover { background: #00d4aa; color: #0a0a0f; }
+
+.newsletter { background: linear-gradient(135deg, #00d4aa08, #7b61ff08); border: 1px solid #00d4aa22; border-radius: 20px; padding: 48px; text-align: center; margin-bottom: 60px; }
+.newsletter h2 { font-size: 24px; font-weight: 700; color: #fff; margin-bottom: 12px; }
+.newsletter p { color: #888; font-size: 14px; margin-bottom: 24px; }
+.newsletter-form { display: flex; gap: 12px; max-width: 420px; margin: 0 auto; }
+.newsletter-form input { flex: 1; padding: 12px 16px; background: #111118; border: 1px solid #1a1a2e; border-radius: 10px; color: #fff; font-size: 14px; outline: none; }
+.newsletter-form button { background: linear-gradient(135deg, #00d4aa, #7b61ff); color: #fff; border: none; padding: 12px 24px; border-radius: 10px; font-size: 14px; font-weight: 600; cursor: pointer; white-space: nowrap; }
+
+.footer { background: #111118; border-top: 1px solid #1a1a2e; padding: 48px 0 24px; }
+.footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px; }
+.footer-brand p { color: #666; font-size: 13px; line-height: 1.8; margin-top: 12px; }
+.footer-col h4 { color: #fff; font-size: 14px; font-weight: 600; margin-bottom: 16px; }
+.footer-col a { display: block; color: #666; font-size: 13px; margin-bottom: 10px; transition: color 0.2s; }
+.footer-col a:hover { color: #00d4aa; }
+.footer-bottom { border-top: 1px solid #1a1a2e; padding-top: 20px; display: flex; justify-content: space-between; align-items: center; }
+.footer-bottom p { color: #444; font-size: 12px; }
+.footer-badges { display: flex; gap: 12px; }
+.footer-badges span { font-size: 11px; color: #444; background: #1a1a2e; padding: 4px 10px; border-radius: 4px; }
+
+.affiliate-bar { background: #1a1a2e; border-top: 1px solid #00d4aa33; padding: 12px 0; text-align: center; font-size: 12px; color: #666; }
+.affiliate-bar a { color: #00d4aa; }
+
+.section-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 28px; }
+.section-title { font-size: 22px; font-weight: 700; color: #fff; }
+.section-link { color: #00d4aa; font-size: 13px; font-weight: 600; }
+
+.tools-showcase { margin-bottom: 60px; }
+
+@media (max-width: 768px) {
+  .nav { display: none; }
+  .footer-grid { grid-template-columns: 1fr; gap: 24px; }
+  .hero { padding: 48px 0 36px; }
+  .newsletter { padding: 32px 20px; }
+  .newsletter-form { flex-direction: column; }
+  .articles-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container header-inner">
+    <div class="logo">AI工具导航</div>
+    <nav class="nav">
+      <a href="#tools">热门工具</a>
+      <a href="#articles">深度评测</a>
+      <a href="#guides">使用教程</a>
+      <a href="https://github.com" class="nav-cta">提交工具</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">🚀 2026年最新 · 持续更新中</div>
+    <h1>找到最适合你的<br><span>AI生产力工具</span></h1>
+    <p>我们深度评测每一款AI工具，从ChatGPT到Claude，从Midjourney到Runway，帮你做出明智选择。</p>
+    <div class="hero-search">
+      <input type="text" placeholder="搜索AI工具...（如：写作、图像生成、视频）" id="searchInput">
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="categories">
+    <div class="pill active">全部</div>
+    <div class="pill">AI写作</div>
+    <div class="pill">图像生成</div>
+    <div class="pill">视频制作</div>
+    <div class="pill">代码辅助</div>
+    <div class="pill">音频处理</div>
+    <div class="pill">办公效率</div>
+  </div>
+</div>
+
+<section class="tools-showcase" id="tools">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-title">🔥 热门AI工具推荐</div>
+      <a href="#" class="section-link">查看全部 →</a>
+    </div>
+    <div class="tools-grid" id="toolsGrid"></div>
+  </div>
+</section>
+
+<section id="articles">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-title">📖 最新深度评测</div>
+      <a href="#" class="section-link">更多文章 →</a>
+    </div>
+    <div class="articles-grid">
+
+      <div class="article-card" onclick="location.href='articles/chatgpt-vs-claude-2026.html'">
+        <div class="article-thumb">💬</div>
+        <div class="article-body">
+          <div class="article-meta"><span>AI写作</span></div>
+          <div class="article-title">ChatGPT vs Claude 2026：深度对比，哪个更适合你？</div>
+          <div class="article-excerpt">从对话质量、长文本处理、代码能力、价格等维度全面对比两款顶级AI助手，帮你做出最佳选择。</div>
+          <div class="article-footer">
+            <span class="article-date">2026-06-27</span>
+            <span class="article-read">阅读全文 →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="article-card" onclick="location.href='articles/midjourney-v7-review.html'">
+        <div class="article-thumb">🎨</div>
+        <div class="article-body">
+          <div class="article-meta"><span>图像生成</span></div>
+          <div class="article-title">Midjourney V7 全面评测：新功能详解与使用技巧</div>
+          <div class="article-excerpt">Midjourney最新V7版本全面评测，新功能详解，附赠50个高级提示词模板。</div>
+          <div class="article-footer">
+            <span class="article-date">2026-06-27</span>
+            <span class="article-read">阅读全文 →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="article-card" onclick="location.href='articles/best-ai-coding-assistants-2026.html'">
+        <div class="article-thumb">⚡</div>
+        <div class="article-body">
+          <div class="article-meta"><span>代码辅助</span></div>
+          <div class="article-title">2026年最佳AI编程助手实测排行榜（15款深度体验）</div>
+          <div class="article-excerpt">我们花了一周时间实测15款AI编程工具，从代码质量、响应速度、价格等维度给出客观排名。</div>
+          <div class="article-footer">
+            <span class="article-date">2026-06-27</span>
+            <span class="article-read">阅读全文 →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="article-card" onclick="location.href='articles/runway-gen3-review.html'">
+        <div class="article-thumb">🎬</div>
+        <div class="article-body">
+          <div class="article-meta"><span>视频制作</span></div>
+          <div class="article-title">Runway Gen-3 深度体验：AI视频生成的新标杆</div>
+          <div class="article-excerpt">Runway最新Gen-3 Alpha模型实测，视频质量接近真实拍摄，附详细使用教程。</div>
+          <div class="article-footer">
+            <span class="article-date">2026-06-27</span>
+            <span class="article-read">阅读全文 →</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="article-card" onclick="location.href='articles/suno-ai-guide.html'">
+        <div class="article-thumb">🎵</div>
+        <div class="article-body">
+          <div class="article-meta"><span>音频处理</span></div>
+          <div class="article-title">Suno AI 完全指南：输入描述即生成完整歌曲</div>
+          <div class="article-excerpt">Suno AI使用教程，包含提示词模板、风格参考、与竞品对比，附赠实用技巧。</div>
+          <div class="article-footer">
+            <span class="article-date">2026-06-27</span>
+            <span class="article-read">阅读全文 →</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="newsletter" id="guides">
+  <div class="container">
+    <h2>📧 每周AI工具洞察</h2>
+    <p>每周三收到一封精选邮件：最新AI工具评测、使用技巧、独家优惠码</p>
+    <form class="newsletter-form" onsubmit="return false;">
+      <input type="email" placeholder="输入你的邮箱...">
+      <button type="submit">免费订阅</button>
+    </form>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">AI工具导航</div>
+        <p>致力于帮助创作者、开发者和企业找到最适合的AI工具，提升10倍生产力。</p>
+      </div>
+      <div class="footer-col">
+        <h4>热门分类</h4>
+        <a href="#">AI写作工具</a>
+        <a href="#">图像生成AI</a>
+        <a href="#">视频制作AI</a>
+        <a href="#">代码辅助</a>
+      </div>
+      <div class="footer-col">
+        <h4>深度评测</h4>
+        <a href="articles/chatgpt-vs-claude-2026.html">ChatGPT vs Claude</a>
+        <a href="articles/midjourney-v7-review.html">Midjourney V7评测</a>
+        <a href="articles/best-ai-coding-assistants-2026.html">最佳AI编程助手</a>
+        <a href="articles/runway-gen3-review.html">Runway Gen-3评测</a>
+      </div>
+      <div class="footer-col">
+        <h4>关于我们</h4>
+        <a href="#">关于本站</a>
+        <a href="#">联系我们</a>
+        <a href="#">隐私政策</a>
+        <a href="#">免责声明</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 AI工具导航 · 保留所有权利</p>
+      <div class="footer-badges">
+        <span>RSS</span>
+        <span>GitHub</span>
+        <span>Twitter</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="affiliate-bar">
+  本站为独立评测，部分链接为联盟链接。使用我们的链接购买，您无需额外付费，我们会获得少量佣金以支持网站运营。感谢支持！
+</div>
+
+<script>
+const tools = [
+  { name: "ChatGPT", desc: "最流行的AI对话助手，支持写作、编程、分析", icon: "💬", color: "green", rating: "★★★★★", link: "https://chat.openai.com" },
+  { name: "Claude", desc: "Anthropic出品，长文本处理和安全对齐领先", icon: "🧠", color: "purple", rating: "★★★★★", link: "https://claude.ai" },
+  { name: "Midjourney", desc: "顶级AI图像生成工具，艺术创作首选", icon: "🎨", color: "blue", rating: "★★★★☆", link: "https://midjourney.com" },
+  { name: "Runway", desc: "专业AI视频生成，Gen-3 Alpha震撼发布", icon: "🎬", color: "orange", rating: "★★★★★", link: "https://runwayml.com" },
+  { name: "Cursor", desc: "AI原生代码编辑器，编程效率提升10倍", icon: "⚡", color: "green", rating: "★★★★★", link: "https://cursor.sh" },
+  { name: "Suno AI", desc: "AI音乐生成，输入描述即可创作完整歌曲", icon: "🎵", color: "blue", rating: "★★★★☆", link: "https://suno.com" },
+  { name: "Perplexity", desc: "AI搜索引擎，实时联网，答案带引用", icon: "🔍", color: "orange", rating: "★★★★★", link: "https://perplexity.ai" },
+  { name: "Notion AI", desc: "笔记+AI写作一体化，团队协作利器", icon: "📝", color: "purple", rating: "★★★★☆", link: "https://notion.so" },
+];
+
+function renderTools() {
+  const grid = document.getElementById('toolsGrid');
+  grid.innerHTML = tools.map(t => `
+    <div class="tool-card">
+      <div class="tool-icon ${t.color}">${t.icon}</div>
+      <div class="tool-name">${t.name}</div>
+      <div class="tool-desc">${t.desc}</div>
+      <div class="tool-rating">${t.rating}</div>
+      <a href="${t.link}?ref=AFF_PLACEHOLDER" class="tool-cta" target="_blank">立即试用 →</a>
+    </div>
+  `).join('');
+}
+
+document.getElementById('searchInput').addEventListener('input', function(e) {
+  const q = e.target.value.toLowerCase();
+  if (!q) { renderTools(); return; }
+  const filtered = tools.filter(t => t.name.toLowerCase().includes(q) || t.desc.toLowerCase().includes(q));
+  const grid = document.getElementById('toolsGrid');
+  grid.innerHTML = filtered.map(t => `
+    <div class="tool-card">
+      <div class="tool-icon ${t.color}">${t.icon}</div>
+      <div class="tool-name">${t.name}</div>
+      <div class="tool-desc">${t.desc}</div>
+      <div class="tool-rating">${t.rating}</div>
+      <a href="${t.link}?ref=AFF_PLACEHOLDER" class="tool-cta" target="_blank">立即试用 →</a>
+    </div>
+  `).join('');
+});
+
+renderTools();
+</script>
+
+</body>
+</html>

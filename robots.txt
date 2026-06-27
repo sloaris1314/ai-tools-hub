@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://YOUR_USERNAME.github.io/ai-tools-hub/sitemap.xml
+
+# 禁止抓取无意义页面
+Disallow: /search?
+Disallow: /*?ref=
